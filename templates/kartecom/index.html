@@ -1,0 +1,25 @@
+
+{% extends 'kartecom/header.html' %}
+{% block content %}
+
+<h1>Simple TODO</h1>
+</br>
+{% if user.is_authenticated %}
+
+<li class="nav-item">
+<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#">Welcome, {{user.username}}</a>
+</li>
+<br/>
+{% for idea in ideas %}
+<li>idea</li>
+{% endfor %}
+{% else %}
+<li class="nav-item">
+<a class="nav-link" href="{% url 'login' %}">Login</a>
+</li>
+{% endif %}
+
+{% endblock %}
